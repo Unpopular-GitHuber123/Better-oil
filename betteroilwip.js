@@ -354,7 +354,7 @@ elements.liquidpropylene = {
     },
 },
 elements.benzenegas = {
-    color: "#fff000",
+    color: "#e3e2c1",
     behavior: behaviors.GAS,
     state: "gas",
     category: "betteroil",
@@ -373,21 +373,22 @@ elements.benzenegas = {
     },
 },
 elements.benzeneice = {
-    color: "#fff000",
+    color: "#d4d3bc",
     behavior: behaviors.SOLID,
     state: "solid",
     category: "betteroil",
     density: 11185,
     tick: function(pixel) {
         if (pixel.temp > -11) {
-            if (Math.random() < 0.001) { changePixel(pixel,"benzenegas") }
+            if (Math.random() < 0.0001) { changePixel(pixel,"benzenegas") }
         }
     },
     stateHigh: "benzene",
     tempHigh: 6,
+    temp: -15,
 },
 elements.benzene = {
-    color: "#fff000",
+    color: "#edecce",
     behavior: behaviors.LIQUID,
     state: "liquid",
     category: "betteroil",
@@ -461,8 +462,8 @@ elements.butadiene = {
 elements.rubber = {
     color: "#333333",
     alias: "polybutadiene",
-    behavior: behaviors.GAS,
-    state: "gas",
+    behavior: behaviors.SOLID,
+    state: "solid",
     category: "betteroil",
     density: 910,
     burn: 20,
@@ -472,7 +473,7 @@ elements.rubber = {
     stateHigh: "molten_rubber",
 },
 elements.molten_rubber = {
-    color: "#a4b3b3",
+    color: "#4a4a4a",
     alias: "polybutadiene",
     behavior: behaviors.LIQUID,
     state: "liquid",
@@ -483,7 +484,7 @@ elements.molten_rubber = {
     burnInto: ["carbon_dioxide", "fire", "smoke"],
     temp: 253,
     tempLow: 250,
-    stateLow: "molten_rubber",
+    stateLow: "rubber",
 },
 elements.liquidbutadiene = {
     color: "#bfbfbf",

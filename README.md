@@ -1,1 +1,1 @@
-This is a mod for the game Sandboxels, which adds gasoline, kerosene, diesel, parrafin, bitumen, naphtha, and much much more! It is currently in the demo, and only has 8 products of crude oil plus their states.
+This is a mod for the game Sandboxels, which adds gasoline, kerosene, diesel, parrafin, bitumen, naphtha, and much much more! It is currently a demo, and only has a few products.

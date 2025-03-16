@@ -1,18 +1,20 @@
 elements.oil = {
     name: "CrudeOil",
     color: "#470e00",
+    behavior: [
+        "XX|XX|XX",
+        "XX|CH:crudepropane,crudegasoline,crudenaphtha,crudeparaffin,crudediesel,crudekerosene,crudelubricant,crudebitumen|XX",
+        "XX|XX|XX",
+    ],
+    state: "liquid",
+    category: "betteroil",
+},
+elements.crudepropane = {
+    name: "CrudeOil",
+    color: "#470e00",
     behavior: behaviors.LIQUID,
     tick: function(pixel) {
-        if (!pixel.burning && pixel.temp > 40 && Math.random() < 0.001) {
-            if (pixel.temp < 60) { changePixel(pixel,"propane") }
-            else if (pixel.temp < 80) { changePixel(pixel,"gasolinefumes") }
-            else if (pixel.temp < 180) { changePixel(pixel,"naphtha") }
-            else if (pixel.temp < 220) { changePixel(pixel,"paraffingas") }
-            else if (pixel.temp < 250) { changePixel(pixel,"dieselgas") }
-            else if (pixel.temp < 300) { changePixel(pixel,"kerosenegas") }
-            else if (pixel.temp < 350) { changePixel(pixel,"lubricantgas") }
-            else { changePixel(pixel,"bitumen") }
-        }
+        if (!pixel.burning && pixel.temp > 25 && Math.random() < 0.001) { changePixel(pixel,"propane") }
     },
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
@@ -39,6 +41,245 @@ elements.oil = {
     density: 825,
     stain: 0.05,
     alias: "petroleum",
+    hidden: true,
+},
+elements.crudegasoline = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 40 && Math.random() < 0.001) { changePixel(pixel,"gasolinefumes") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "smoke", "smoke","smoke", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudenaphtha = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 80 && Math.random() < 0.001) { changePixel(pixel,"naphtha") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "smoke", "smoke","smoke", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudeparaffin = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 180 && Math.random() < 0.001) { changePixel(pixel,"liquidparaffin") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "smoke", "smoke","smoke", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudediesel = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 220 && Math.random() < 0.001) { changePixel(pixel,"dieselgas") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "smoke", "smoke","smoke", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudekerosene = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 250 && Math.random() < 0.001) { changePixel(pixel,"kerosenegas") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "smoke", "smoke","smoke", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudelubricant = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 300 && Math.random() < 0.001) { changePixel(pixel,"lubricant") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","lubricantgas", "lubricantgas", "lubricantgas","lubricantgas", "smoke","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
+},
+elements.crudebitumen = {
+    name: "CrudeOil",
+    color: "#470e00",
+    behavior: behaviors.LIQUID,
+    tick: function(pixel) {
+        if (!pixel.burning && pixel.temp > 350 && Math.random() < 0.001) { changePixel(pixel,"bitumen") }
+    },
+    reactions: {
+        "dirt": { elem1:null, elem2:"mud" },
+        "sand": { elem1:null, elem2:"wet_sand" },
+        "sulfur": { elem1:null, elem2:"greek_fire" },
+        "molten_sulfur": { elem1:"greek_fire", elem2:"greek_fire" },
+        "water": { burning1:true, elem2:"explosion" },
+        "steam": { burning1:true, elem2:"explosion" },
+        "salt_water": { burning1:true, elem2:"explosion" },
+        "sugar_water": { burning1:true, elem2:"explosion" },
+        "dirty_water": { burning1:true, elem2:"explosion" },
+        "pool_water": { burning1:true, elem2:"explosion" },
+        "seltzer": { burning1:true, elem2:"explosion" },
+        "coral": { elem2:null, chance:0.01 },
+    },
+    category: "betteroil",
+    tempHigh: 500,
+    stateHigh: "fire",
+    burn: 5,
+    burnTime: 300,
+    burnInto: ["carbon_dioxide","smoke", "bitumengas", "bitumengas","bitumengas", "bitumengas","fire"],
+    viscosity: 250,
+    state: "liquid",
+    density: 825,
+    stain: 0.05,
+    alias: "petroleum",
+    hidden: true,
 },
 elements.gasoline = {
     behavior: behaviors.LIQUID,
@@ -50,14 +291,11 @@ elements.gasoline = {
     category: "betteroil",
     tick: function(pixel) {
         if (pixel.temp > -35) {
-            if (Math.random() < 0.0001) { changePixel(pixel,"gasolinefumes") }
+            if (Math.random() < 0.002) { changePixel(pixel,"gasolinefumes") }
         }
     },
     tempLow: -40,
     stateLow: "gasolineice",
-    burn: 10,
-    burnTime: 1000,
-    burnInto: ["smoke", "smoke", "smoke", "smoke", "smoke", "carbon_dioxide", "steam", "fire", "fire", "fire", "fire"],
     viscosity: 2,
     state: "liquid",
     density: 730,
@@ -85,13 +323,12 @@ elements.gasolinefumes = {
     stateHigh: "fire",
     tick: function(pixel) {
         if (pixel.temp < 40) {
-            if (Math.random() < 0.001) { changePixel(pixel,"gasoline") }
+            if (Math.random() < 0.002) { changePixel(pixel,"gasoline") }
         }
     },
     burn: 100,
-    burnTime: 5,
-    burnInto: ["carbon_dioxide", "smoke", "steam"],
-    viscosity: 150,
+    burnTime: 70,
+    burnInto: ["carbon_dioxide", "smoke", "smoke", "fire", "explosion", "fire"],
     state: "gas",
     density: 3.5,
 },
@@ -121,8 +358,9 @@ elements.naphtha = {
     temp: 90,
     state: "gas",
     density: 3,
+    burnInto: ["smoke", "carbon_dioxide", "steam", "nitrogen", "fire", "smoke", "carbon_dioxide", "smoke", "smoke", "explosion"],
     burn: 10,
-    burnTime: 5,
+    burnTime: 40,
     tempLow: 50,
     stateLow: "liquidnaphtha",
 },
@@ -196,15 +434,12 @@ elements.lamp_oil = {
     },
     tick: function(pixel) {
         if (pixel.temp > 34) {
-            if (Math.random() < 0.0001) { changePixel(pixel,"kerosenegas") }
+            if (Math.random() < 0.0015) { changePixel(pixel,"kerosenegas") }
         }
     },
     category: "betteroil",
     tempLow: -40,
     stateLow: "keroseneice",
-    burn: 30,
-    burnTime: 2000,
-    burnInto: ["carbon_dioxide", "smoke", "smoke", "smoke", "fire"],
     viscosity: 3,
     state: "liquid",
     density: 800,
@@ -216,9 +451,6 @@ elements.diesel = {
     state: "liquid",
     category: "betteroil",
     density: 840,
-    burn: 20,
-    burnTime: 1500,
-    burnInto: ["smoke", "smoke", "fire", "nitrogen", "steam", "smoke", "carbon_dioxide,", "smoke", "fire", "steam", "smoke"],
     reactions: {
         "glue": {elem2:null, chance:0.05},
         "wax": {elem2:null, chance:0.005},
@@ -238,7 +470,7 @@ elements.diesel = {
     },
     tick: function(pixel) {
         if (pixel.temp > 60) {
-            if (Math.random() < 0.0001) { changePixel(pixel,"dieselgas") }
+            if (Math.random() < 0.002) { changePixel(pixel,"dieselgas") }
         }
     },
     tempLow: -10,
@@ -271,6 +503,8 @@ elements.bitumengas = {
     state: "gas",
     category: "betteroil",
     temp: 525,
+    tempLow: 515,
+    stateLow: "bitumen",
 },
 elements.lubricantgas = {
     color: "#f59071",
@@ -298,7 +532,7 @@ elements.liquidnaphtha = {
     },
     tick: function(pixel) {
         if (pixel.temp > 51) {
-            if (Math.random() < 0.0005) { changePixel(pixel,"naphtha") }
+            if (Math.random() < 0.002) { changePixel(pixel,"naphtha") }
         }
     },
 },
@@ -360,8 +594,8 @@ elements.benzenegas = {
     category: "betteroil",
     density: 3.483,
     burn: 100,
-    burnTime: 5,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnTime: 70,
+    burnInto: ["explosion", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     reactions: {
         "ethylenegas": { elem1:"ethylbenzene", elem2:"ethylbenzene" },
         "ethylene": { elem1:"ethylbenzene", elem2:"ethylbenzene" },
@@ -395,7 +629,7 @@ elements.benzene = {
     density: 876,
     tick: function(pixel) {
         if (pixel.temp > -11) {
-            if (Math.random() < 0.001) { changePixel(pixel,"benzenegas") }
+            if (Math.random() < 0.002) { changePixel(pixel,"benzenegas") }
         }
     },
     reactions: {
@@ -412,13 +646,13 @@ elements.dieselgas = {
     category: "betteroil",
     density: 4,
     burn: 100,
-    burnTime: 5,
+    burnTime: 70,
     tick: function(pixel) {
         if (pixel.temp < 200) {
-            if (Math.random() < 0.001) { changePixel(pixel,"diesel") }
+            if (Math.random() < 0.002) { changePixel(pixel,"diesel") }
         }
     },
-    burnInto: ["carbon_dioxide,", "carbon_dioxide,", "fire", "nitrogen", "steam", "smoke", "carbon_dioxide,", "carbon_dioxide,", "fire", "steam", "smoke"],
+    burnInto: ["carbon_dioxide,", "carbon_dioxide,", "fire", "nitrogen", "explosion", "smoke", "explosion", "fire", "steam", "smoke"],
 },
 elements.kerosenegas = {
     color: "#b5b591",
@@ -427,12 +661,12 @@ elements.kerosenegas = {
     category: "betteroil",
     density: 5.8,
     burn: 100,
-    temp: 250,
-    burnTime: 5,
-    burnInto: ["carbon_dioxide","fire"],
+    temp: 270,
+    burnTime: 80,
+    burnInto: ["carbon_dioxide","fire","fire","explosion","smoke","smoke","smoke"],
     tick: function(pixel) {
         if (pixel.temp < 245) {
-            if (Math.random() < 0.001) { changePixel(pixel,"lamp_oil") }
+            if (Math.random() < 0.0015) { changePixel(pixel,"lamp_oil") }
         }
     },
 },
@@ -493,10 +727,16 @@ elements.liquidbutadiene = {
     category: "betteroil",
     density: 614,
     burn: 35,
-    burnTime: 500,
+    burnTime: 300,
     burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     tempLow: -109,
-    stateLow: "butadieneice"
+    stateLow: "butadieneice",
+    temp: -10,
+    tempHigh: -6,
+    stateHigh: "butadiene",
+    reactions: {
+        "styrene": { elem1: "rubber", elem2: null },
+    },
 },
 elements.butadieneice = {
     color: "#d1d1d1",
@@ -518,6 +758,43 @@ elements.toluenegas = {
     burn: 100,
     burnTime: 5,
     burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    tick: function(pixel) {
+        if (pixel.temp < 111) {
+            if (Math.random() < 0.001) { changePixel(pixel,"toluene") }
+        }
+    },
+    tempLow: 4,
+    stateLow: "toluene",
+},
+elements.toluene = {
+    color: "#adadad",
+    behavior: behaviors.LIQUID,
+    state: "liquid",
+    category: "betteroil",
+    density: 3,
+    burn: 30,
+    burnTime: 400,
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    tick: function(pixel) {
+        if (pixel.temp > 4) {
+            if (Math.random() < 0.001) { changePixel(pixel,"toluenegas") }
+        }
+    },
+},
+elements.tolueneice = {
+    color: "#adadad",
+    behavior: behaviors.LIQUID,
+    state: "liquid",
+    category: "betteroil",
+    density: 3,
+    burn: 30,
+    burnTime: 400,
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    tick: function(pixel) {
+        if (pixel.temp > 4) {
+            if (Math.random() < 0.001) { changePixel(pixel,"toluenegas") }
+        }
+    },
 },
 elements.butane = {
     color: "#d1d1d1",
@@ -539,6 +816,7 @@ elements.xylenegas = {
     category: "betteroil",
     burn: 100,
     burnTime: 5,
+    density: 3.7,
     burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
 },
 elements.paraffingas = {
@@ -549,6 +827,7 @@ elements.paraffingas = {
     temp: 370,
     tempLow: 365,
     stateLow: "liquidparaffin",
+    density: 1.934,
     burn: 100,
     burnTime: 5,
     burnInto: ["toluene", "benzene", "carbon_dioxide"]
@@ -574,7 +853,7 @@ elements.liquidparaffin = {
 },
 elements.paraffin = {
     color: "#d9d5ca",
-    behavior: behaviors.WALL,
+    behavior: behaviors.SOLID,
     state: "solid",
     category: "betteroil",
     tempHigh: 37,
@@ -614,14 +893,38 @@ elements.dieselice = {
     density: 950,
 },
 elements.titaniumpowder = {
-    color: "#797982",
-    behavior: behaviors.POWDER,
+    color: "#8c8ca3",
+    name: "TitaniumPowder",
+    behavior: behaviors.SUPPORT,
     state: "solid",
     category: "powders",
+    tempHigh: 1670,
+    stateHigh: "molten_titanium",
+},
+elements.moltentitanium = {
+    color: "#ff4800",
+    behavior: behaviors.MOLTEN,
+    state: "liquid",
+    category: "liquids",
+    hidden: true,
+    tempLow: 1665,
+    stateLow: "titanium",
+    temp: 1670,
+},
+elements.titanium = {
+    color: "#797982",
+    behavior: behaviors.WALL,
+    state: "solid",
+    category: "solids",
+    tempHigh: 1670,
+    stateHigh: "molten_titanium",
+    breakInto: "titaniumpowder",
+    conduct: 0.4,
+    hardness: 0.4,
 },
 elements.polyethylene = {
     color: "#c5dede",
-    behavior: behaviors.WALL,
+    behavior: behaviors.SOLID,
     tempHigh: 120,
     burn: 10,
     burnTime: 200,
@@ -689,6 +992,15 @@ elements.ethylbenzeneice = {
     temp: -95,
     density: 950,
 },
+elements.styreneice = {
+    color: "#dedede",
+    behavior: behaviors.SOLID,
+    state: "solid",
+    category: "betteroil",
+    stateHigh: "styrene",
+    tempHigh: -30,
+    temp: -35,
+},
 elements.styrene = {
     colour: "#d1d1d1",
     behavior: behaviors.LIQUID,
@@ -701,6 +1013,10 @@ elements.styrene = {
             if (Math.random() < 0.001) { changePixel(pixel,"styrenegas") }
         }
     },
+    burn: 30,
+    burnTime: 300,
+    burnInto: ["dioxin", "smoke", "fire"],
+    density: 906,
 }
 elements.styrenegas = {
     colour: "#dedede",
@@ -714,6 +1030,10 @@ elements.styrenegas = {
             if (Math.random() < 0.001) { changePixel(pixel,"styrenegas") }
         }
     },
+    burn: 100,
+    burnTime: 5,
+    burnInto: ["dioxin", "smoke", "fire", "smoke", "fire", "smoke", "fire"],
+    density: 4.6,
 }
 elements.LPG = {
     color: "#ebebeb",
@@ -729,4 +1049,6 @@ elements.LPG = {
     },
     fireColor: ["#00ffff","#00ffdd"],
 },
-elements.propane.category = "betteroil"
+elements.propane.category = "betteroil",
+elements.propane.burnInto = ["fire", "fire", "smoke", "smoke", "carbon_dioxide", "explosion"],
+elements.propane.burnTime = 30

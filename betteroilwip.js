@@ -94,7 +94,7 @@ elements.crudeethane = {
     color: "#470e00",
     behavior: behaviors.LIQUID,
     tick: function(pixel) {
-        if (pixel.temp > -88.5 && Math.random() < 0.001) { changePixel(pixel,"methane") }
+        if (pixel.temp > -88.5 && Math.random() < 0.001) { changePixel(pixel,"ethane") }
     },
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
@@ -505,7 +505,7 @@ elements.naphtha = {
     temp: 90,
     state: "gas",
     density: 3,
-    burnInto: ["smoke", "carbon_dioxide", "steam", "nitrogen", "fire", "smoke", "carbon_dioxide", "smoke", "smoke"],
+    burnInto: ["smoke", "carbon_dioxide", "nitrogen", "fire", "smoke", "carbon_dioxide", "smoke", "smoke"],
     burn: 10,
     burnTime: 30,
 },
@@ -521,7 +521,7 @@ elements.ethylene = {
     },
     burn: 100,
     burnTime: 15,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     density: 1.26,
     tick: function(pixel) {
         if (pixel.temp < -103) {
@@ -548,7 +548,7 @@ elements.liquidethylene = {
         "dirt": { elem1:null, elem2:"mud" },
         "sand": { elem1:null, elem2:"wet_sand" },
     },
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     state: "liquid",
     density: 567.65,
     tick: function(pixel) {
@@ -762,7 +762,7 @@ elements.propylene = {
     density: 1.91,
     burn: 100,
     burnTime: 15,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     reactions: {
         "titaniumpowder": { elem1:"polypropylene", elem2:"titaniumpowder" },
     },
@@ -794,7 +794,7 @@ elements.liquidpropylene = {
         "dirt": { elem1:null, elem2:"mud" },
         "sand": { elem1:null, elem2:"wet_sand" },
     },
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     state: "liquid",
     density: 567.65,
     tick: function(pixel) {
@@ -968,7 +968,7 @@ elements.dieselgas = {
             if (Math.random() < 0.02) { changePixel(pixel,"diesel") }
         }
     },
-    burnInto: ["carbon_dioxide,", "carbon_dioxide,", "fire", "nitrogen", "smoke", "fire", "steam", "smoke"],
+    burnInto: ["carbon_dioxide,", "carbon_dioxide,", "fire", "nitrogen", "smoke", "fire", "smoke"],
 },
 elements.kerosenegas = {
     color: "#b5b591",
@@ -1019,7 +1019,7 @@ elements.butadiene = {
     density: 2.428,
     burn: 100,
     burnTime: 15,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     tempLow: -5,
     stateLow: "liquidbutadiene",
     reactions: {
@@ -1092,7 +1092,7 @@ elements.toluenegas = {
     density: 3,
     burn: 100,
     burnTime: 25,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     tick: function(pixel) {
         if (pixel.temp < 111) {
             if (Math.random() < 0.0001) { changePixel(pixel,"toluene") }
@@ -1173,7 +1173,7 @@ elements.butane = {
     density: 2.703,
     burn: 100,
     burnTime: 15,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     reactions: {
         "propane": { elem1: "LPG", elem2: null },
     },
@@ -1186,7 +1186,7 @@ elements.xylenegas = {
     burn: 100,
     burnTime: 15,
     density: 3.7,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     stateLow: "xylene",
     tempLow: 29,
     tick: function(pixel) {
@@ -1216,7 +1216,7 @@ elements.xylene = {
     state: "liquid",
     category: "betteroil",
     density: 3.7,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
     tempHigh: 194,
     density: 865,
     stateHigh: "xylenegas",
@@ -1351,7 +1351,7 @@ elements.polyethylene = {
     density: 950,
     burn: 30,
     burnTime: 150,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
 },
 elements.polystyrene = {
     color: "#dce8e8",
@@ -1381,7 +1381,7 @@ elements.liquidpolyethylene = {
     density: 842,
     burn: 60,
     burnTime: 150,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
 },
 elements.liquidpolystyrene = {
     color: "#b5bdbd",
@@ -1400,7 +1400,7 @@ elements.liquidpolystyrene = {
     },
     burn: 80,
     burnTime: 100,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire", "smoke"],
 },
 elements.ethylbenzene = {
     color: "#d1d1d1",
@@ -1559,7 +1559,7 @@ elements.LPG = {
     density: 1.9,
     burn: 100,
     burnTime: 10,
-    burnInto: ["steam", "carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire"],
+    burnInto: ["carbon_dioxide", "fire", "smoke", "carbon_dioxide", "fire"],
     reactions: {
         "propane": { elem1: "LPG", elem2: null },
     },
@@ -1694,7 +1694,68 @@ elements.methane = {
     burnTime: 5,
     fireColor: "0000FF",
     temp: 20,
-    burnInto: ["fire", "fire", "fire", "carbon_dioxide", "smoke", "smoke", "smoke"]
+    burnInto: ["fire", "fire", "fire", "carbon_dioxide", "smoke", "smoke", "smoke"],
+    tempLow: -161,
+    stateLow: "liquidmethane"
+},
+elements.liquidmethane = {
+    color: "#e3e3e3",
+    behavior: behaviors.LIQUID,
+    tempHigh: -161,
+    stateHigh: "methane",
+    category: "betteroil",
+    state: "liquid",
+    density: 422,
+    temp: -95,
+    tempLow: -182,
+    stateLow: "methaneice"
+},
+elements.methaneice = {
+    color: "#e3e3e3",
+    behavior: behaviors.SOLID,
+    tempHigh: -182,
+    stateHigh: "liquidmethane",
+    category: "betteroil",
+    state: "solid",
+    density: 433,
+    temp: -200,
+},
+elements.ethane = {
+    color: "#e3e3e3",
+    behavior: behaviors.GAS,
+    tempHigh: 472,
+    stateHigh: "fire",
+    category: "betteroil",
+    state: "gas",
+    density: 1.3562,
+    burn: 90,
+    burnTime: 5,
+    fireColor: "0000FF",
+    temp: 20,
+    burnInto: ["fire", "fire", "fire", "carbon_dioxide", "carbon_dioxide", "smoke", "smoke", "smoke"],
+    tempLow: -89,
+    stateLow: "liquidethane"
+},
+elements.liquidethane = {
+    color: "#e3e3e3",
+    behavior: behaviors.LIQUID,
+    tempHigh: -89,
+    stateHigh: "ethane",
+    category: "betteroil",
+    state: "liquid",
+    density: 546,
+    temp: -95,
+    tempLow: -182,
+    stateLow: "ethaneice"
+},
+elements.ethaneice = {
+    color: "#e3e3e3",
+    behavior: behaviors.SOLID,
+    tempHigh: -182,
+    stateHigh: "liquidethane",
+    category: "betteroil",
+    state: "solid",
+    density: 550,
+    temp: -200,
 }
-
 //https://www.youtube.com/watch?v=IhRAjrF3WcE

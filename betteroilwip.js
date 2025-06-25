@@ -14,7 +14,7 @@ elements.crudepropane = {
     color: "#470e00",
     behavior: behaviors.LIQUID,
     tick: function(pixel) {
-        if (pixel.temp > 25 && Math.random() < 0.001) { changePixel(pixel,"propane") }
+        if (pixel.temp > -42 && Math.random() < 0.0002) { changePixel(pixel,"propane") }
     },
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
@@ -60,7 +60,7 @@ elements.crudemethane = {
     color: "#470e00",
     behavior: behaviors.LIQUID,
     tick: function(pixel) {
-        if (pixel.temp > -161 && Math.random() < 0.001) { changePixel(pixel,"methane") }
+        if (pixel.temp > -161 && Math.random() < 0.0002) { changePixel(pixel,"methane") }
     },
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
@@ -94,7 +94,7 @@ elements.crudeethane = {
     color: "#470e00",
     behavior: behaviors.LIQUID,
     tick: function(pixel) {
-        if (pixel.temp > -88.5 && Math.random() < 0.001) { changePixel(pixel,"ethane") }
+        if (pixel.temp > -88.5 && Math.random() < 0.0002) { changePixel(pixel,"ethane") }
     },
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
@@ -401,6 +401,7 @@ elements.gasoline = {
     reactions: {
         "dirt": { elem1:null, elem2:"mud" },
         "sand": { elem1:null, elem2:"wet_sand" },
+        "polystyrene": { elem1: null, elem2: "napalmb" },
     },
     category: "betteroil",
     tick: function(pixel) {
@@ -432,6 +433,32 @@ elements.gasoline = {
     burn: 5,
     burnTime: 800,
     burnInto: "gasolinefumes",
+},
+elements.napalmb = {
+    behavior: behaviors.STICKY,
+    tick: function(pixel) {
+        if (pixel.temp > 25 && Math.random() < 0.0005) {
+            for (var i = 0; i < adjacentCoords.length; i++) {
+                var coords = adjacentCoords[i];
+                var x = pixel.x + coords[0];
+                var y = pixel.y + coords[1];
+                if (isEmpty(x,y)) {
+                    createPixel("gasolinefumes",x,y);
+                    changePixel(pixel, "polystyrene");
+                }
+                if (pixelMap[x,y].element == "polystyrene") {
+                    changePixel(pixelMap[x,y],"napalmb");
+                    changePixel(pixel, "polystyrene");
+                }
+            }
+        }
+    },
+    burn: 80,
+    burnTime: 1000,
+    name: "Napalm",
+    alias: "Napalm B",
+    category: "weapons",
+    burnInto: ["carbon_dioxide", "fire", "smoke"],
 },
 elements.gasolineice = {
     behavior: behaviors.SOLID,
@@ -1732,7 +1759,7 @@ elements.ethane = {
     burnTime: 5,
     fireColor: "0000FF",
     temp: 20,
-    burnInto: ["fire", "fire", "fire", "carbon_dioxide", "carbon_dioxide", "smoke", "smoke", "smoke"],
+    burnInto: ["fire", "fire", "fire", "carbon_dioxide", "smoke", "smoke", "smoke"],
     tempLow: -89,
     stateLow: "liquidethane"
 },
